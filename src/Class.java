@@ -17,40 +17,40 @@ public class Class {
 
     }
 
-    public String Fish (String rod) {
+    public void Fish (String rod) {
         int fish = (int) ((Math.random() * 100) + 1);
-        if (rod.equals("rodtype1")) {
-            if (fish == 100) {
-                misc++;
-                return "misc";
-            } else if ((fish < 100) && (fish > 50)) {
-                tuna++;
-                return "tuna";
+        switch (rod) {
+            case "rodtype1" -> {
+                if (fish == 100) {
+                    misc++;
+                    return;
+                } else if ((fish < 100) && (fish > 50)) {
+                    tuna++;
+                    return;
+                }
+                salmon++;
             }
-            salmon++;
-            return "salmon";
-        } else if (rod.equals("rodtype2")) {
-            if (fish == 100) {
-                misc++;
-                return "misc";
-            } else if ((fish < 100) && (fish > 50)) {
-                tuna++;
-                return "tuna";
+            case "rodtype2" -> {
+                if (fish == 100) {
+                    misc++;
+                    return;
+                } else if ((fish < 100) && (fish > 50)) {
+                    tuna++;
+                    return;
+                }
+                salmon++;
             }
-            salmon++;
-            return "salmon";
-        } else if (rod.equals("rodtype3")) {
-            if (fish == 100) {
-                misc++;
-                return "misc";
-            } else if ((fish < 100) && (fish > 50)) {
-                tuna++;
-                return "tuna";
+            case "rodtype3" -> {
+                if (fish == 100) {
+                    misc++;
+                    return;
+                } else if ((fish < 100) && (fish > 50)) {
+                    tuna++;
+                    return;
+                }
+                salmon++;
             }
-            salmon++;
-            return "salmon";
         }
-    return "error";
     }
 
 
