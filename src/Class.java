@@ -1,6 +1,8 @@
 public class Class {
     private int coins;
     private int catches;
+    private double salmonCost;
+    private double tunaCost;
 
     public Class(int coins, int catches)
     {
@@ -15,10 +17,7 @@ public class Class {
             coin = "heads";}
         else {
             coin = "tails"; }
-        if (call == coin) {
-            return true;}
-        else {
-            return false; }
+        return call == coin;
     }
     
     public void printInfo() {
@@ -28,6 +27,14 @@ public class Class {
         System.out.print("what would you like to do?  ");
     }
 
+    public double market (String type, int catches){
+            double salmonPrice = salmonCost * catches;
+            double tunaPrice = tunaCost * catches;
+            double total = salmonPrice + tunaPrice ;
+
+
+        return total;
+    }
 
 
 }
