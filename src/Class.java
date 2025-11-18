@@ -71,18 +71,19 @@ public class Class {
     public void printInfo() {
         int catches = misc + salmon + tuna;
         System.out.println("-----------------------------------------------");
-        System.out.println("coins: " + coins + "           catches: " + catches);
+        System.out.println("coins: " + coins + " catches: Salmon:" + salmon + ", tuna: " + tuna + ", misc: " + misc);
         System.out.println("-----------------------------------------------");
         System.out.print("what would you like to do?  ");
+
     }
 
 
 
 
 
-    public double market (String type, int catches){
-            double salmonProfit = salmonPrice * catches;
-            double tunaProfit = tunaPrice * catches;
+    public double sell (){
+            double salmonProfit = salmonPrice * salmon;
+            double tunaProfit = tunaPrice * tuna;
             double total = salmonProfit + tunaProfit ;
 
 
@@ -90,7 +91,7 @@ public class Class {
     }
 
     public boolean coinFlip(String call) {
-        int random = (int) (Math.random() * 1 + 1);
+        int random = (int) (Math.random() * 2 + 1);
         String coin = "";
         if (random == 1) {
             coin = "heads";}
