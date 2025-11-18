@@ -1,12 +1,12 @@
 public class Class {
-    private int coins;
+    private double coins;
     private int misc;
     private int salmon;
     private int tuna;
     private double salmonPrice;
     private double tunaPrice;
 
-    public Class(int coins, int misc, int salmon, int tuna ,double salmonPrice, double tunaPrice)
+    public Class(double coins, int misc, int salmon, int tuna ,double salmonPrice, double tunaPrice)
     {
         this.coins = coins;
         this.misc = misc;
@@ -85,7 +85,7 @@ public class Class {
             double salmonProfit = salmonPrice * salmon;
             double tunaProfit = tunaPrice * tuna;
             double total = salmonProfit + tunaProfit ;
-
+            coins = coins + total;
 
         return total;
     }
