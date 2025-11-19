@@ -1,13 +1,14 @@
+import java.util.Objects;
+
 public class Class {
-    private double coins;
+    private int coins;
     private int misc;
     private int salmon;
     private int tuna;
-    private double salmonPrice;
-    private double tunaPrice;
+    private int salmonPrice;
+    private int tunaPrice;
 
-    public Class(double coins, int misc, int salmon, int tuna ,double salmonPrice, double tunaPrice)
-    {
+    public Class(int coins, int misc, int salmon, int tuna, int salmonPrice, int tunaPrice) {
         this.coins = coins;
         this.misc = misc;
         this.salmon = salmon;
@@ -17,7 +18,7 @@ public class Class {
 
     }
 
-    public void Fish (String rod) {
+    public void Fish(String rod) {
         int fish = (int) ((Math.random() * 100) + 1);
         switch (rod) {
             case "rodtype1" -> {
@@ -54,20 +55,6 @@ public class Class {
     }
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
     public void printInfo() {
         int catches = misc + salmon + tuna;
         System.out.println("-----------------------------------------------");
@@ -78,26 +65,39 @@ public class Class {
     }
 
 
-
-
-
-    public double sell (){
-            double salmonProfit = salmonPrice * salmon;
-            double tunaProfit = tunaPrice * tuna;
-            double total = salmonProfit + tunaProfit ;
-            coins = coins + total;
-
+    public int sell() {
+        int salmonProfit = salmonPrice * salmon;
+        int tunaProfit = tunaPrice * tuna;
+        int total = salmonProfit + tunaProfit;
+        salmon = 0;
+        tuna = 0;
+        coins = coins + total;
+        System.out.println("You made " + total + "coins, current total is " + coins);
         return total;
     }
 
-    public boolean coinFlip(String call) {
+    public boolean coinFlip(String call, int wager) {
         int random = (int) (Math.random() * 2 + 1);
-        String coin = "";
+        String coin;
+        if (wager > coins) {
+            wager = coins;
+        }
         if (random == 1) {
-            coin = "heads";}
-        else {
-            coin = "tails"; }
-        return call == coin;
+            coin = "heads";
+        } else {
+            coin = "tails";
+        }
+        if (Objects.equals(call, coin)) {
+            coins = coins + wager;
+            System.out.println("you win");
+        } else {
+            coins = coins - wager;
+            System.out.println("you lost");
+        }
+        return Objects.equals(call, coin);
     }
 
+    public void market() {
+
+    }
 }

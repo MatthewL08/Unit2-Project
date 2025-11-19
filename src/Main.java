@@ -11,6 +11,14 @@ public class Main {
             one.Fish("rodtype1");}
         else if (action.equals("sell")){
                 one.sell();}
+        else if (action.equals("coinflip")){
+            System.out.println("How much would you like to wager");
+            int wager = scan.nextInt();
+            System.out.println("what do you call");
+            String call = scan.next();
+            one.coinFlip(call, wager);
+
+            }
 
     }
     }
