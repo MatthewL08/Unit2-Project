@@ -2,7 +2,7 @@ import java.util.Scanner;
 public class Main {
     public static void main(String[] args) {
         Scanner scan = new Scanner(System.in);
-        Class one = new Class(0, 0, 0, 0, 1, 1, "bamboo");
+        Class one = new Class(0, 0, 0, 0, 3, 8, "basic", 0);
 
         for (int i = 1; i < 1000; i++) {
             one.printInfo();
@@ -18,9 +18,15 @@ public class Main {
                     one.coinFlip(call, wager);
                 }
                 case "purchase" -> {
-                    System.out.println("what type of rod");
+                    System.out.println("what bait or type of rod");
                     String material = scan.next();
-                    System.out.println(one.purchase(material));
+                    if (material.equals("bait")) {
+                        System.out.println("how many would you like to purchase?");
+                        int amount = scan.nextInt();
+                        one.purchase(material, amount);
+                    } else {
+                        one.purchase(material, 0);
+                    }
                 }
                 case "market" -> one.newRod();
 

@@ -8,8 +8,10 @@ public class Class {
     private final int salmonPrice;
     private final int tunaPrice;
     private String rodType;
+    private int baitAmount;
 
-    public Class(int coins, int misc, int salmon, int tuna, int salmonPrice, int tunaPrice, String rod) {
+
+    public Class(int coins, int misc, int salmon, int tuna, int salmonPrice, int tunaPrice, String rod, int baitAmount) {
         this.coins = coins;
         this.misc = misc;
         this.salmon = salmon;
@@ -17,6 +19,7 @@ public class Class {
         this.salmonPrice = salmonPrice;
         this.tunaPrice = tunaPrice;
         rodType = rod;
+        this.baitAmount = baitAmount;
 
     }
 
@@ -73,7 +76,7 @@ public class Class {
         salmon = 0;
         tuna = 0;
         coins = coins + total;
-        System.out.println("You made " + total + "coins, current total is " + coins);
+        System.out.println("You made " + total + " coins, current total is " + coins);
 
     }
 
@@ -103,13 +106,21 @@ public class Class {
         System.out.println();
     }
 
-    public String purchase (String material){
-    rodType = material;
-    if (material.equals("bamboo")) {
-            coins = coins - 0; }
-    else if (material.equals("steel")) {
-            coins = coins - 0; }
-        return "you have bought a " + material + " rod";
-    }
+    public void purchase(String material, int amount) {
+        rodType = material;
+        switch (material) {
+            case "bamboo" -> coins = coins - 150;
+            case "steel" -> coins = coins - 600;
+            case "bait" -> {
+                if (2 * amount > coins) {
+                    baitAmount = coins / 2;
+                    coins = coins % 2;
+                } else {
+                    baitAmount = amount;
+                    coins = coins - 2 * amount;
+                }
+            }
+        }
 
+    }
 }
